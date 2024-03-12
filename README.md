@@ -6,6 +6,8 @@ It has been created with a 5kW DEYE/SUNSYNK inverter and since integrated with a
 
 This component uses Pysolarman by Jonathan McCrohan for the underlying protocol, and also provides service-access to the library for advanced users. See [advanced](advanced.md).
 
+NOTE: this repository tries to add inverter control capability to the instance. USE AT YOUR OWN RISK.
+
 # Discord
 
 Feel free to discuss the integration by joining the [Discord server](https://discord.gg/3HQJXR7qRd).
