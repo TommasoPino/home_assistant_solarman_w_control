@@ -43,13 +43,13 @@ parameters:
   - group: Controls
     buttons:
       - name: "IV Curve Scan"
-          class: ""
-          state_class: ""
-          uom: ""
-          scale: 1
-          rule: 1
-          registers: [0x1027]
-          icon: "mdi:vector-curve"
+        class: ""
+        state_class: ""
+        uom: ""
+        scale: 1
+        rule: 1
+        registers: [0x1027]
+        icon: "mdi:vector-curve"
     selects:
       - name: "Storage Mode Control"
         class: ""
