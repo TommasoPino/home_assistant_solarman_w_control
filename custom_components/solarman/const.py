@@ -1,7 +1,7 @@
 from datetime import timedelta
 import os
 
-DOMAIN = 'solarman'
+DOMAIN = 'solarman_w_control'
 
 DEFAULT_PORT_INVERTER = 8899
 DEFAULT_INVERTER_MB_SLAVEID = 1
