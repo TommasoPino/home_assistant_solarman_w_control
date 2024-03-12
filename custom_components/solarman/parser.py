@@ -237,6 +237,22 @@ class ParameterParser:
                 result.append(j)
         return result
     
+    def get_selects(self):
+        result = []
+        for i in self._lookups['parameters']:
+            if 'selects' in i:
+                for j in i['selects']:
+                    result.append(j)
+        return result
+
+    def get_buttons(self):
+        result = []
+        for i in self._lookups['parameters']:
+            if 'buttons' in i:
+                for j in i['buttons']:
+                    result.append(j)
+        return result
+
     def is_integer_num(self, n):
         if isinstance(n, int):
             return True
