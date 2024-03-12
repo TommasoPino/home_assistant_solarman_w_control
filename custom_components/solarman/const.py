@@ -19,3 +19,5 @@ CONF_INVERTER_MB_SLAVEID = 'inverter_mb_slaveid'
 CONF_LOOKUP_FILE = 'lookup_file'
 
 SENSOR_PREFIX = 'Solarman'
+
+PATH_INVERTER_DEF = os.path.dirname(__file__) + '/inverter_definitions/'
