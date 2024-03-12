@@ -8,8 +8,15 @@ class ParameterParser:
 
     def parse (self, rawData, start, length):
         for i in self._lookups['parameters']:
-            for j in i['items']:
-                self.try_parse_field(rawData, j, start, length)        
+            if 'items' in i:
+                for j in i['items']:
+                    self.try_parse_field(rawData, j, start, length)
+            if 'selects' in i:
+                for j in i['selects']:
+                    self.try_parse_field(rawData, j, start, length)
+            if 'buttons' in i:
+                for j in i['buttons']:
+                    self.try_parse_field(rawData, j, start, length)
         return
 
     def get_result(self):
