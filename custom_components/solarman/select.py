@@ -108,7 +108,7 @@ class SolarmanSelect(SelectEntity):
             if value == option:
                 newvalue = key
                 break
-        self.inverter.write_multiple_values(self.registers[0],[newvalue])
+        self.inverter.service_write_multiple_holding_registers(self.registers[0],[newvalue])
 
     def select_option(self, option: str) -> None:
         """Change the selected option."""

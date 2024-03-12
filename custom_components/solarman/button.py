@@ -100,7 +100,7 @@ class SolarmanButton(ButtonEntity):
         self._sn = sn
 
     def _press_button(self):
-        self.inverter.write_multiple_values(self.registers[0],[1])
+        self.inverter.service_write_multiple_holding_registers(self.registers[0],[1])
 
     def press(self) -> None:
         """Handle the button press."""

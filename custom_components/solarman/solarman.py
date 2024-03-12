@@ -33,6 +33,8 @@ class Inverter:
         with open(self.path + self.lookup_file) as f:
             self.parameter_definition = yaml.full_load(f)
 
+        self.params = ParameterParser(self.parameter_definition)
+
 
     def connect_to_server(self):
         if self._modbus:
@@ -122,6 +124,26 @@ class Inverter:
     def get_sensors(self):
         params = ParameterParser(self.parameter_definition)
         return params.get_sensors ()
+
+
+    def get_sensors(self):
+        params = self.params #ParameterParser(self.parameter_definition)
+        return params.get_sensors ()
+
+    def get_selects(self):
+        params = self.params #ParameterParser(self.parameter_definition)
+        return params.get_selects()
+    
+    def get_buttons(self):
+        params = self.params #ParameterParser(self.parameter_definition)
+        return params.get_buttons()
+
+    # def write_multiple_values(self,register:int,values:list):
+    #     from pysolarmanv5 import PySolarmanV5
+    #     modbus = PySolarmanV5(
+    #             self._host, self._serial, port=self._port, mb_slave_id=self._mb_slaveid, verbose=False
+    #         )
+    #     modbus.write_multiple_holding_registers(register_addr=register, values=values)
 
 # Service calls
     def service_write_holding_register(self, register, value):
