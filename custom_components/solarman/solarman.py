@@ -13,6 +13,8 @@ log = logging.getLogger(__name__)
 
 QUERY_RETRY_ATTEMPTS = 2
 
+inverters = {}
+
 class Inverter:
     def __init__(self, path, serial, host, port, mb_slaveid, lookup_file):
         self._modbus = None

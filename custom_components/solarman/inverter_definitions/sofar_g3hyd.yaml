@@ -30,7 +30,46 @@ requests:
     end: 0x1052
     mb_functioncode: 0x03
 
+    # controls
+  - start: 0x1027 # IV Curve Scan (SofarHYD Modbus protocol explaination-3ph.xlsx -> 地址说明 -> line 1091)
+    end: 0x1027
+    mb_functioncode: 0x03
+
+  - start: 0x1110 # Storage Mode Control (SofarHYD Modbus protocol explaination-3ph.xlsx -> 地址说明 -> line 1330)
+    end: 0x1110
+    mb_functioncode: 0x03
+
 parameters:
+  - group: Controls
+    buttons:
+      - name: "IV Curve Scan"
+          class: ""
+          state_class: ""
+          uom: ""
+          scale: 1
+          rule: 1
+          registers: [0x1027]
+          icon: "mdi:vector-curve"
+    selects:
+      - name: "Storage Mode Control"
+        class: ""
+        state_class: ""
+        uom: ""
+        scale: 1
+        rule: 1
+        registers: [0x1110]
+        isstr: true
+        icon: "mdi:wrench"
+        lookup:
+          - key: 0
+            value: "Self Use Mode"
+          - key: 1
+            value: "Time of Use Mode"
+          - key: 2
+            value: "Passive Mode"
+          - key: 3
+            value: "Peak Cut Mode"
+
 
   - group: Inverter
     items:

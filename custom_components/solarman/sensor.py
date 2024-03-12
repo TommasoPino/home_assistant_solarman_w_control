@@ -17,7 +17,7 @@ from homeassistant.helpers.entity import Entity
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from .const import *
-from .solarman import Inverter
+from .solarman import Inverter, inverters
 from .scanner import InverterScanner
 from .services import *
 
@@ -51,7 +51,11 @@ def _do_setup_platform(hass: HomeAssistant, config, async_add_entities : AddEnti
     if inverter_sn is None:
         raise vol.Invalid('configuration parameter [inverter_serial] does not have a value')
 
-    inverter = Inverter(path, inverter_sn, inverter_host, inverter_port, inverter_mb_slaveid, lookup_file)
+    # do not define again the inverter if it is already defined
+    if inverter_sn not in inverters.keys():
+        inverters[inverter_sn] = Inverter(path, inverter_sn, inverter_host, inverter_port, inverter_mb_slaveid, lookup_file)
+    inverter = inverters[inverter_sn]
+
     #  Prepare the sensor entities.
     hass_sensors = []
     for sensor in inverter.get_sensors():
