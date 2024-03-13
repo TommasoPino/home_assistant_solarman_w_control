@@ -1,4 +1,4 @@
-# Solarman integration
+# Solarman integration (with inverter control)
 
 Home Assistant component for interacting with Solarman data collectors used with a variety of inverters. The integration allows Home Assistant to connect in direct-mode over the local network to the collector to extract the information, and no cables are required.
 
